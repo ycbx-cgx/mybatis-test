@@ -28,6 +28,6 @@
     </environments>
     <mappers>
         <!-- 注册mapper，mapper存放SQL语句 -->
-        <mapper resource="test-mapper.xml"/>
+        <mapper class="com.ybx.mybatis.mapper.EmpMapper"/>
     </mappers>
 </configuration>

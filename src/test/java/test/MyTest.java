@@ -1,6 +1,7 @@
 package test;
 
 import com.ybx.mybatis.entity.Emp;
+import com.ybx.mybatis.mapper.EmpMapper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -22,8 +23,10 @@ public class MyTest {
             // 打开新会话
             SqlSession sqlSession = sqlSessionFactory.openSession();
 
-            // 执行SQL语句
-            Emp e = sqlSession.selectOne("test-mapper.findEmpById");
+            // 获取Mapper 通过Mapper可以快速找到SQL语句
+            EmpMapper mapper = sqlSession.getMapper(EmpMapper.class);
+            // 通过mapper执行SQL语句
+            Emp e = mapper.getEmpById(3);
             System.out.println(e);
         }  catch (IOException e) {
             System.err.println("无法读取MyBatis的核心文件！！");
