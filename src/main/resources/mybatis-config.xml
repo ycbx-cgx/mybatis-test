@@ -15,6 +15,9 @@
         <!-- 指定日志输出实现：SLF4J | LOG4J2 | LOG4J | JDK_LOGGING | STDOUT_LOGGING -->
         <setting name="logImpl" value="STDOUT_LOGGING"/>
     </settings>
+    <typeAliases>
+        <package name="com.ybx.mybatis.entity"/>
+    </typeAliases>
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>
@@ -28,6 +31,6 @@
     </environments>
     <mappers>
         <!-- 注册mapper，mapper存放SQL语句 -->
-        <mapper class="com.ybx.mybatis.mapper.EmpMapper"/>
+        <package name="com.ybx.mybatis.mapper"/>
     </mappers>
 </configuration>
